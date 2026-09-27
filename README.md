@@ -30,6 +30,7 @@ rows outside the training ranges are excluded from scoring and reported.
 [Open the complete project notebook in Google Colab](https://colab.research.google.com/github/CA-BijiteshKanrar/tsl-machine-failure-dashboard/blob/main/Machine_Failure_Prediction_Colab.ipynb).
 
 The versioned project inputs are stored in `data/train.csv` and `data/test.csv`.
-In a fresh Colab runtime, the notebook downloads these files directly from this
-repository and verifies their SHA-256 checksums. Local files are preferred when
-available, and manual upload remains a fallback if GitHub cannot be reached.
+In a fresh Colab runtime, the notebook shallow-clones this repository, reads the
+bundled datasets, and verifies their SHA-256 checksums. Its dependency cell uses
+compatible version ranges without force-reinstalling Colab's core stack. Local
+files and manual upload remain fallback options.
