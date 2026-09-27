@@ -24,3 +24,12 @@ GEMINI_MODEL = "gemini-3.5-flash-lite"
 The dataset and model are synthetic research material. Alerts support review;
 they are not observed failures or maintenance instructions. Uploaded CSV/Excel
 rows outside the training ranges are excluded from scoring and reported.
+
+## Colab notebook and reproducible data
+
+[Open the complete project notebook in Google Colab](https://colab.research.google.com/github/CA-BijiteshKanrar/tsl-machine-failure-dashboard/blob/main/Machine_Failure_Prediction_Colab.ipynb).
+
+The versioned project inputs are stored in `data/train.csv` and `data/test.csv`.
+In a fresh Colab runtime, the notebook downloads these files directly from this
+repository and verifies their SHA-256 checksums. Local files are preferred when
+available, and manual upload remains a fallback if GitHub cannot be reached.

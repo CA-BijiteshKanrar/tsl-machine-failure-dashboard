@@ -6,3 +6,6 @@ __pycache__/
 *.csv
 *.xlsx
 *.xls
+!data/train.csv
+!data/test.csv
+.ipynb_checkpoints/
