@@ -4,7 +4,7 @@ A demo deployed on Streamlit for a machine-failure evaluation model. The include
 model artifact enables local scoring. An Azure ML endpoint and Gemini chat is
 also be enabled.
 
-##Deployment Architecture
+# Deployment Architecture
 <img width="1380" height="602" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/d02a43d4-cd6a-431c-8cba-e1bd7a336cfb" />
 
 
