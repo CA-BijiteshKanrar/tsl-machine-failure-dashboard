@@ -30,7 +30,7 @@ rows outside the training ranges are excluded from scoring and reported.
 
 ## Colab notebook and reproducible data
 
-[Open the final submission notebook in Google Colab]([https://colab.research.google.com/github/CA-BijiteshKanrar/tsl-machine-failure-dashboard/blob/main/Machine_Failure_Prediction_Colab.ipynb](https://colab.research.google.com/drive/1q1atdA8NUgYTzkeyGOGqctsetiZHccaS)).
+[Open the final submission notebook in Google Colab][https://colab.research.google.com/github/CA-BijiteshKanrar/tsl-machine-failure-dashboard/blob/main/Machine_Failure_Prediction_Colab.ipynb](https://colab.research.google.com/drive/1q1atdA8NUgYTzkeyGOGqctsetiZHccaS).
 
 ### Evaluator quick start
 
