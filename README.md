@@ -30,10 +30,70 @@ rows outside the training ranges are excluded from scoring and reported.
 
 ## Colab notebook and reproducible data
 
-[Open the complete project notebook in Google Colab](https://colab.research.google.com/github/CA-BijiteshKanrar/tsl-machine-failure-dashboard/blob/main/Machine_Failure_Prediction_Colab.ipynb).
+[Open the final submission notebook in Google Colab](https://colab.research.google.com/github/CA-BijiteshKanrar/tsl-machine-failure-dashboard/blob/main/Machine_Failure_Prediction_Colab.ipynb).
 
-The versioned project inputs are stored in `data/train.csv` and `data/test.csv`.
-In a fresh Colab runtime, the notebook shallow-clones this repository, reads the
-bundled datasets, and verifies their SHA-256 checksums. Its dependency cell uses
-compatible version ranges without force-reinstalling Colab's core stack. Local
-files and manual upload remain fallback options.
+### Evaluator quick start
+
+1. Open the link above in a **fresh Google Colab runtime**. If the browser reused
+   a runtime that previously installed different NumPy or Pandas versions, choose
+   **Runtime → Disconnect and delete runtime** before continuing.
+2. Choose **Runtime → Run all**. No Google Drive mount, API key, or manual dataset
+   upload is required for the notebook analysis.
+3. The setup cell shallow-clones this repository to
+   `/content/tsl-machine-failure-dashboard` and reuses that clone if the cell is
+   run again. The notebook reads the two bundled files from the clone:
+   `data/train.csv` and `data/test.csv`.
+4. The loader verifies both files against their recorded SHA-256 checksums before
+   analysis. The expected shapes are 136,429 labelled training rows and 90,954
+   unlabelled test rows.
+
+### Dependency handling
+
+The setup follows a Colab-safe installation pattern. It asks pip for bounded,
+compatible versions without using `--force-reinstall`, replacing Colab's runtime,
+or terminating the kernel:
+
+```text
+numpy>=1.26,<2.3       pandas==2.2.3        scipy>=1.12,<2
+scikit-learn>=1.4,<2  xgboost>=2.1,<4      lightgbm>=4.5,<5
+matplotlib>=3.8,<4    seaborn>=0.13,<1     joblib>=1.3,<2
+```
+
+### What the notebook demonstrates
+
+- Dataset and business understanding, data-quality checks, EDA, and hypothesis
+  testing.
+- Leakage-safe preprocessing and feature engineering. Identifiers and recorded
+  failure-type flags are excluded from model inputs.
+- Class-imbalance-aware comparison of Logistic Regression, Random Forest,
+  XGBoost, and LightGBM.
+- Validation-only threshold selection using F2, followed by one locked-holdout
+  evaluation with precision, recall, average precision, ROC AUC, and alert counts.
+- Feature importance, fine-tuning experiments, stakeholder conclusions, and a
+  Microsoft Azure deployment demonstration.
+
+### Generated files
+
+The final cells save the fitted model bundle and test predictions under the
+temporary Colab `artifacts/` directory:
+
+```text
+artifacts/machine_failure_model.joblib
+artifacts/submission.csv
+artifacts/test_probabilities.csv
+```
+
+These files are **not downloaded automatically**. An evaluator can inspect the
+displayed results in the notebook or download a required file manually from
+Colab's Files panel. The test set is unlabelled, so the two CSVs contain model
+predictions rather than test-performance measurements.
+
+### Deployment demonstration
+
+The companion public application demonstrates Azure ML endpoint scoring, CSV or
+Excel batch evaluation, end-user visualizations, and Gemini-assisted explanations:
+[Machine Failure Risk Analyzer](https://mfriskanalyzer.streamlit.app/).
+
+Azure and Gemini credentials are stored only in private Streamlit deployment
+secrets. They are not present in this repository or required to execute the Colab
+analysis.
