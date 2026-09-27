@@ -34,9 +34,7 @@ rows outside the training ranges are excluded from scoring and reported.
 
 ### Evaluator quick start
 
-1. Open the link above in a **fresh Google Colab runtime**. If the browser reused
-   a runtime that previously installed different NumPy or Pandas versions, choose
-   **Runtime → Disconnect and delete runtime** before continuing.
+1. Open the link above.
 2. Choose **Runtime → Run all**. No Google Drive mount, API key, or manual dataset
    upload is required for the notebook analysis.
 3. The setup cell shallow-clones this repository to
