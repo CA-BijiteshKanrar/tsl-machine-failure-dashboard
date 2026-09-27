@@ -1,11 +1,14 @@
-# Machine failure risk dashboard
+# Machine Failure Analyzer Demo
 
-Streamlit dashboard for a synthetic machine-failure research model. The included
-model artifact enables local scoring. An Azure ML endpoint and Gemini chat can
-also be enabled through **private Streamlit secrets**; keys are never requested
-or rendered by the app.
+A demo deployed on Streamlit for a machine-failure evaluation model. The included
+model artifact enables local scoring. An Azure ML endpoint and Gemini chat is
+also be enabled.
 
-## Streamlit Community Cloud
+##Deployment Architecture
+<img width="1380" height="602" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/d02a43d4-cd6a-431c-8cba-e1bd7a336cfb" />
+
+
+## How to Deploy on Local
 
 Deploy `app.py` from this repository using Python 3.12. `requirements.txt` is
 the app-only dependency set. The app's public URL can be shared after setting
